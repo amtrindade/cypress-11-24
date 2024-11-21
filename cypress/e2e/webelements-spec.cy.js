@@ -27,7 +27,7 @@ describe('WebElements Tests', () => {
     cy.get('form > :nth-child(1) > .text-muted').should('have.text', 'TextField:')
   })
 
-  it('Deveria validar o radio button', () => {
+  it('Deveria validar o Radio Button', () => {
     cy.get('input[name=radioGroup1]').first().check().should('be.checked')
     cy.get('input[name=radioGroup1]').check('Radio 2').should('be.checked')
 
@@ -35,9 +35,29 @@ describe('WebElements Tests', () => {
 
     cy.get('input[name=radioGroup1]').should('have.length', 4)
 
-    cy.get('input[name=radioGroup1]').first().should('be.not.checked')
+    cy.get('input[name=radioGroup1]').first().should('be.not.checked')  
     //TODO pesquisar como fazer a validação dos que não estão checkados.
     
+  })
+
+  it('Deveria validar o Checkbox', () => {
+    cy.get('input[name=chkbox]').first().check().should('be.checked')
+
+    cy.get('input[name=chkbox]')
+      .check('Check 1')
+      .should('be.checked')
+
+    cy.get('input[name=chkbox]') 
+      .check('Check 2')
+      .should('be.checked')
+
+    cy.get('input[name=chkbox]') 
+      .uncheck('Check 2')
+      .should('not.be.checked')
+
+    cy.get('input[name=chkbox]').check( {multiple:true}).should('be.checked')
+
+    cy.get('input[name=chkbox]').last().uncheck().should('not.be.checked')
   })
 
 })
