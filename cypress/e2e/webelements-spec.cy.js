@@ -27,4 +27,17 @@ describe('WebElements Tests', () => {
     cy.get('form > :nth-child(1) > .text-muted').should('have.text', 'TextField:')
   })
 
+  it('Deveria validar o radio button', () => {
+    cy.get('input[name=radioGroup1]').first().check().should('be.checked')
+    cy.get('input[name=radioGroup1]').check('Radio 2').should('be.checked')
+
+    cy.get('input[name=radioGroup1]').last().check().should('be.checked')
+
+    cy.get('input[name=radioGroup1]').should('have.length', 4)
+
+    cy.get('input[name=radioGroup1]').first().should('be.not.checked')
+    //TODO pesquisar como fazer a validação dos que não estão checkados.
+    
+  })
+
 })
