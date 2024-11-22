@@ -60,4 +60,26 @@ describe('WebElements Tests', () => {
     cy.get('input[name=chkbox]').last().uncheck().should('not.be.checked')
   })
 
+  it('Deveria validar o Select Single', () => {
+
+    cy.get('select[name=dropdownlist]').select('Item 2').should('have.value', 'item2')
+    cy.get('select[name=dropdownlist]').select(0).should('have.value', 'item1')
+
+    cy.get('select[name=dropdownlist] option').first().should('have.value', 'item1')
+
+    cy.get('select[name=dropdownlist] option').should('have.length', 10)
+
+    //TODO pendente, validar quais os 10 itens do select com then()
+
+  })
+
+  it.only('Deveria validar o Select Multiple', () => {
+
+    cy.get('select[name=multiselectdropdown]').select(["Item 2", "Item 5", "Item 8"])
+
+    //TODO validar quais os 3 itens selecionados then()
+  })
+
+
+
 })
