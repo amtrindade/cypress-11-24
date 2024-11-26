@@ -69,17 +69,27 @@ describe('WebElements Tests', () => {
 
     cy.get('select[name=dropdownlist] option').should('have.length', 10)
 
-    //TODO pendente, validar quais os 10 itens do select com then()
+    cy.get('select[name=dropdownlist] option').then(($options) => {
+        const list = []
+        $options.each(function() {
+           list.push(this.innerText)
+        })
 
+        expect(list).to.include.members(['Item 1', 'Item 2', 'Item 3', 
+          'Item 4', 'Item 5', 'Item 6', 'Item 7', 
+          'Item 8', 'Item 9', 'Item 10'])
+    }) 
   })
 
-  it.only('Deveria validar o Select Multiple', () => {
+  it('Deveria validar o Select Multiple', () => {
 
     cy.get('select[name=multiselectdropdown]').select(["Item 2", "Item 5", "Item 8"])
 
-    //TODO validar quais os 3 itens selecionados then()
-  })
-
-
-
+    cy.get('select[name=multiselectdropdown]').then($list => {
+        expect($list.val()).to.have.length(3)
+        expect($list.val()).to.have.members(['item2', 'item5', 'item8'])
+      })
+    })
 })
+
+
