@@ -30,7 +30,7 @@ describe('Teste de todo list', () => {
             cy.get('.todo-list li').should('have.length', 1)
         })
 
-        it('Remover nova tarefa adcionada', () => {
+        it.only('Remover nova tarefa adcionada', () => {
             cy.get('.todo-list li').contains(`${task}`).parent().find('input').check()
 
             // 1 - Usando o trigger para simular o click do mouse
@@ -42,8 +42,9 @@ describe('Teste de todo list', () => {
             //2 - Usando o invoke para simular o click do mouse
             cy.get('.todo-list li')
                 .contains(`${task}`)
-                .parent().find('button')
-                .invoke('show').click()
+                .parent().find('button')                
+                .invoke('show')
+                .click()
             
             // 3 - Usando o force para simular o click do mouse
             // cy.get('.todo-list li')

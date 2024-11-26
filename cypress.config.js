@@ -5,6 +5,9 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
-    baseUrl: 'https://antoniotrindade.com.br/treinoautomacao'
+    baseUrl: 'https://antoniotrindade.com.br/treinoautomacao',
+    //defaultCommandTimeout: 1000,
+    // viewportWidth: 480,
+    // viewportHeight: 1000,
   },
 });
