@@ -90,6 +90,13 @@ describe('WebElements Tests', () => {
         expect($list.val()).to.have.members(['item2', 'item5', 'item8'])
       })
     })
+
+    it('Utilizar do wrap', () => {
+      
+      cy.get('input[name=txtbox1]').then($el => {
+        cy.wrap($el).type('WebElements Test Page Lab').should('have.value', 'WebElements Test Page Lab')
+      })
+    })
 })
 
 
