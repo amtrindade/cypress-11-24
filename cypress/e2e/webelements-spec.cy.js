@@ -5,11 +5,13 @@ describe('WebElements Tests', () => {
     cy.visit('/elementsweb.html')
   })
 
-  it('Deveria validar textField com texto Hello World ', () => {
+  it.only('Deveria validar textField com texto Hello World ', () => {
     //1 - Identifica um elemento
     //2 - Interage com esse elemento
     //3 - Valida o resultado
     cy.get('input[name=txtbox1]').type('Hello World!').should('have.value', 'Hello World!')
+
+    cy.xpath('//input[@name="txtbox1"]').clear().type('Hello World!').should('have.value', 'Hello World!')
 
   })
 
