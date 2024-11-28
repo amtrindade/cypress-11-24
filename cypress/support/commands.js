@@ -33,3 +33,17 @@ Cypress.Commands.add('login', (workspace, username, password) => {
 
     cy.get(loc.LOGIN.BTN_LOGIN).click()
 })
+
+Cypress.Commands.add('createLocal', (description, corporateName) => {
+    cy.get(loc.LISTLOCAL.BTN_INSERT).click()
+       
+    cy.get(loc.ADDLOCAL.TF_DESCRIPTION).type(description)
+    cy.get(loc.ADDLOCAL.TF_CORPORTE_NAME).type(corporateName)
+
+    cy.get(loc.ADDLOCAL.BTN_SAVE).click()
+})
+
+Cypress.Commands.add('searchLocal', (description) => {
+    cy.get(loc.LISTLOCAL.TF_SEARCH).type(description)
+    cy.get(loc.LISTLOCAL.BTN_SEARCH).click()
+})
