@@ -46,7 +46,7 @@ describe('Trabalhando com locais', () => {
 
         })
 
-        it.only('Inativa um local', () => {
+        it('Inativa um local', () => {
             cy.get(loc.LISTLOCAL.TD_FIRSTLINE_DESCRIPTION).should('have.text', nameLocal)
             cy.get(loc.LISTLOCAL.TD_FIRSTLINE_BTN_EDIT).click()
 

@@ -5,7 +5,7 @@ describe('WebElements Tests', () => {
     cy.visit('/elementsweb.html')
   })
 
-  it.only('Deveria validar textField com texto Hello World ', () => {
+  it('Deveria validar textField com texto Hello World ', () => {
     //1 - Identifica um elemento
     //2 - Interage com esse elemento
     //3 - Valida o resultado

@@ -30,7 +30,7 @@ describe('Teste de todo list', () => {
             cy.get('.todo-list li').should('have.length', 1)
         })
 
-        it.only('Remover nova tarefa adcionada', () => {
+        it('Remover nova tarefa adcionada', () => {
             cy.get('.todo-list li').contains(`${task}`).parent().find('input').check()
 
             // 1 - Usando o trigger para simular o click do mouse
